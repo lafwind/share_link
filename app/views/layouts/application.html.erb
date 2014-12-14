@@ -5,17 +5,17 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= render 'layout/shim' %>
+  <%= render 'layouts/shim' %>
 </head>
 <body>
 
-<%= render 'layout/header' %>
+<%= render 'layouts/header' %>
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <%= yield %>
       <hr>
-      <%= render 'layout/footer' %>
+      <%= render 'layouts/footer' %>
     </div>
   </div>
 </div>
