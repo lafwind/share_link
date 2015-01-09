@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :links
+
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
 
