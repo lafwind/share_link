@@ -3,3 +3,7 @@
 <%= gravatar_for(@user) %>
 
 <%= @user.name %>, <%= @user.email %>
+
+<% @links.each do |link| %>
+  <p><%= link %></p>
+<% end %>
