@@ -1,4 +1,7 @@
 <h3><%= @user.name %>'s links</h3>
 <% @links.each do |link| %>
-  <p><%= link %></p>
+  <p><%= link_to link.title, "http://#{link.url}" %></p>
 <% end %>
+
+
+<p><%= link_to 'New Link', new_user_link_path %></p>

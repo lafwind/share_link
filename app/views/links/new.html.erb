@@ -1,0 +1,9 @@
+<h3>New Link</h3>
+
+<%= form_for([@user, @user.links.build]) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+  <%= f.submit "Create" %>
+<% end %>
