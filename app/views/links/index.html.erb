@@ -1,6 +1,9 @@
 <h3><%= @user.name %>'s links</h3>
 <% @links.each do |link| %>
-  <p><%= link_to link.title, "http://#{link.url}" %></p>
+  <p>
+    <%= link_to link.title, "http://#{link.url}" %>
+    <%= link_to 'delete', user_link_path(@user, link), method: :delete, data: { confirm: "Are you sure" } %>
+  </p>
 <% end %>
 
 
