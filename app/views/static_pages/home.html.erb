@@ -1,1 +1,7 @@
-<h3>The home page.</h3>
+<h3>Links: </h3>
+
+<% @all_share_links.each do |user, link| %>
+  <p>
+    <%= link_to link.title, "http://#{link.url}" %> shared by <%= user.name %>
+  </p>
+<% end %>

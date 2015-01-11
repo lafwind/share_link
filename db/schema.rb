@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150109141128) do
+ActiveRecord::Schema.define(version: 20150111140328) do
 
   create_table "links", force: true do |t|
     t.string   "title"
     t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "user_id"
+    t.boolean  "sharing",    default: false
   end
 
   add_index "links", ["user_id"], name: "index_links_on_user_id"

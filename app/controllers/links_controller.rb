@@ -75,4 +75,26 @@ class LinksController < ApplicationController
     end
   end
 
+  def share
+    @user = User.find(params[:user_id])
+    if @user != current_user
+      redirect_to root_url
+    else
+      @link = @user.links.find(params[:id])
+      @link.update_attribute(:sharing, true)
+      redirect_to user_links_path, notice: "Link had been shared!"
+    end
+  end
+
+  def unshare
+    @user = User.find(params[:user_id])
+    if @user != current_user
+      redirect_to root_url
+    else
+      @link = @user.links.find(params[:id])
+      @link.update_attribute(:sharing, false)
+      redirect_to user_links_path, notice: "Unshared the link now!"
+    end
+  end
+
 end

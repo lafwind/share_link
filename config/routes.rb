@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :users do
-    resources :links
+    resources :links do
+      member do
+        patch :share, :unshare
+      end
+    end
   end
 
 

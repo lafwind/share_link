@@ -2,9 +2,15 @@
 <% @links.each do |link| %>
   <p>
     <%= link_to link.title, "http://#{link.url}" %>
+    <% if link.sharing == true %>
+      <%= link_to 'unshare', unshare_user_link_path(@user, link), method: :patch %>
+    <% else %>
+      <%= link_to 'share', share_user_link_path(@user, link), method: :patch %>
+    <% end %>
     <%= link_to 'edit', edit_user_link_path(@user, link) %>
     <%= link_to 'delete', user_link_path(@user, link), method: :delete, data: { confirm: "Are you sure" } %>
   </p>
+
 <% end %>
 
 
