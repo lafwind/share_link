@@ -17,7 +17,7 @@
         <li class=<%= 'active' if params[:controller] == 'static_pages' && params[:action] == 'home' %>><%= link_to "Home", root_path %></li>
         <li class=<%= 'active' if params[:controller] == 'static_pages' && params[:action] == 'about' %>><%= link_to "About", about_path %></li>
         <% if logged_in? %>
-        <li class=<%= 'active' if params[:controller] == 'links' && params[:action] == 'index' %>><%= link_to "Links", user_links_path(current_user.id) %></li>
+        <li class=<%= 'active' if params[:controller] == 'links' && params[:action] == 'index' && @user == current_user %>><%= link_to "Links", user_links_path(current_user.id) %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Account <b class="caret"></b>

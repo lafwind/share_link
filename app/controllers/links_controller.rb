@@ -3,7 +3,14 @@ class LinksController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     if @user != current_user
-      redirect_to root_url
+      @links = []
+      all_links = @user.links.all
+
+      all_links.each do |link|
+        if link.sharing == true
+          @links << link
+        end
+      end
     else
       @links = @user.links.all
     end
