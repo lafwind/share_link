@@ -1,18 +1,26 @@
-<h3><%= @user.name %>'s links</h3>
-<% @links.each do |link| %>
-  <p>
-    <%= link_to link.title, "http://#{link.url}" %>
-    <% if link.sharing == true %>
-      <%= link_to 'unshare', unshare_user_link_path(@user, link), method: :patch %>
-    <% else %>
-      <%= link_to 'share', share_user_link_path(@user, link), method: :patch %>
-    <% end %>
-    <%= link_to 'edit', edit_user_link_path(@user, link) %>
-    <%= link_to 'delete', user_link_path(@user, link), method: :delete, data: { confirm: "Are you sure" } %>
-  </p>
+<% provide(:title, @user.name)%>
+<%= gravatar_for(@user) %>
 
-<% end %>
+<h3><%= @user.name %>'s links</h3>
 
 <% if @user == current_user %>
+  <% @links.each do |link| %>
+    <p>
+      <%= link_to link.title, "http://#{link.url}" %>
+      <% if link.sharing == true %>
+        <%= link_to 'unshare', unshare_user_link_path(@user, link), method: :patch %>
+      <% else %>
+        <%= link_to 'share', share_user_link_path(@user, link), method: :patch %>
+      <% end %>
+      <%= link_to 'edit', edit_user_link_path(@user, link) %>
+      <%= link_to 'delete', user_link_path(@user, link), method: :delete, data: { confirm: "Are you sure" } %>
+    </p>
+
+  <% end %>
+
   <p><%= link_to 'New Link', new_user_link_path %></p>
+<% else %>
+  <% @links.each do |link| %>
+      <%= link_to link.title, "http://#{link.url}" %>
+  <% end %>
 <% end %>

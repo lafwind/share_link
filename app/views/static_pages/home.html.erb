@@ -2,6 +2,6 @@
 
 <% @all_share_links.each do |user, link| %>
   <p>
-    <%= link_to link.title, "http://#{link.url}" %> shared by <%= user.name %>
+    <%= link_to link.title, "http://#{link.url}" %> shared by <%= link_to user.name, user_links_path(user) %>
   </p>
 <% end %>
