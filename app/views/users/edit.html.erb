@@ -1,4 +1,11 @@
-<h3>Profile Settting: </h3>
+<h3>Change the password: </h3>
 
 <%= form_for(@user) do |f| %>
+  <%#= f.label :Old_password %>
+  <%#= f.password_field :password %>
+  <%= f.label :New_password %>
+  <%= f.password_field :password %>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.submit "Change"%>
 <% end %>

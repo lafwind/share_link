@@ -32,13 +32,21 @@ class UsersController < ApplicationController
     if @user != current_user
       redirect_to root_url
     else
+      if @user.update_attributes(user_params)
+      #if @user.authenticate(params[:user][:password])
+        # change password
+        redirect_to current_user
+      else
+        flash.now[:error] = "Invalid old password!"
+        render 'edit'
+      end
     end
   end
 
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password,
+      params.require(:user).permit(:password,
                                   :password_confirmation)
     end
 end
