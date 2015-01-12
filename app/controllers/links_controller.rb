@@ -16,6 +16,17 @@ class LinksController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:user_id])
+    @link = @user.links.find(params[:id])
+    @comments = {}
+    @link.comments.all.each do |comment|
+      # debugger
+      user_name = User.find(comment.user_id).name
+      @comments[user_name] = comment.content
+    end
+  end
+
   def new
     @user = User.find(params[:user_id])
     if @user != current_user

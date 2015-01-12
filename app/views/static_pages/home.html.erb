@@ -4,4 +4,7 @@
   <p>
     <%= link_to link.title, "http://#{link.url}" %> shared by <%= link_to user.name, user_links_path(user) %>
   </p>
+  <p>
+    <%= link_to 'comments', user_link_path(user, link) %>
+  </p>
 <% end %>

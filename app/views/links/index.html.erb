@@ -12,6 +12,7 @@
       <% else %>
         <%= link_to 'share', share_user_link_path(@user, link), method: :patch %>
       <% end %>
+      <%= link_to 'detail', user_link_path(@user, link) %>
       <%= link_to 'edit', edit_user_link_path(@user, link) %>
       <%= link_to 'delete', user_link_path(@user, link), method: :delete, data: { confirm: "Are you sure" } %>
     </p>
@@ -22,5 +23,6 @@
 <% else %>
   <% @links.each do |link| %>
       <%= link_to link.title, "http://#{link.url}" %>
+      <%= link_to 'detail', user_link_path(@user, link) %>
   <% end %>
 <% end %>
