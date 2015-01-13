@@ -3,6 +3,7 @@
 
 <h3><%= @user.name %>'s links</h3>
 
+
 <% if @user == current_user %>
   <% @links.each do |link| %>
     <p>
@@ -28,3 +29,5 @@
     </p>
   <% end %>
 <% end %>
+
+<%= will_paginate @link %>

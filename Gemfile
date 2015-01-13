@@ -15,6 +15,7 @@ gem 'rails-html-sanitizer', '1.0.1'
 gem 'sdoc',                 '0.4.0', group: :doc
 
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'will_paginate', '~> 3.0.6'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

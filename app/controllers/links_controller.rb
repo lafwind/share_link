@@ -12,7 +12,8 @@ class LinksController < ApplicationController
         end
       end
     else
-      @links = @user.links.all
+      #@links = @user.links.all
+      @links = @user.links.paginate(page: params[:page])
     end
   end
 
