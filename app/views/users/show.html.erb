@@ -3,3 +3,4 @@
 <%= gravatar_for(@user) %>
 
 <p><%= @user.name %>, <%= @user.email %></p>
+<%= link_to 'Links', user_links_path(@user, @link) %>

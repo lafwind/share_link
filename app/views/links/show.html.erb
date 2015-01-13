@@ -29,5 +29,5 @@
 
 <p>Comment: </p>
 <% @comments.each do |comment| %>
-  <p><%= comment[0] %>: <%= comment[1] %></p>
+  <p><%= link_to comment[0].name, user_path(comment[0]) %>: <%= comment[1] %></p>
 <% end %>

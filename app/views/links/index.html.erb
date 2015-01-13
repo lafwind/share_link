@@ -22,7 +22,9 @@
   <p><%= link_to 'New Link', new_user_link_path %></p>
 <% else %>
   <% @links.each do |link| %>
+    <p>
       <%= link_to link.title, "http://#{link.url}" %>
       <%= link_to 'detail', user_link_path(@user, link) %>
+    </p>
   <% end %>
 <% end %>
