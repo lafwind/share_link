@@ -18,10 +18,10 @@ class LinksController < ApplicationController
 
   def show
     @user = User.find(params[:user_id])
+    @link = @user.links.find(params[:id])
     if @user != current_user && @link.sharing == false
       redirect_to login_path
     else
-      @link = @user.links.find(params[:id])
       @comments = []
       @link.comments.all.each do |comment|
         # debugger

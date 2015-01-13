@@ -14,13 +14,13 @@
         Dislike
         <%= share[1].get_downvotes.size%>
       <% end %>
-      <%= link_to 'Comments', user_link_path(share[0], share[1]) %>
+      <%= link_to "Comments(#{share[2]})", user_link_path(share[0], share[1]) %>
     </p>
   <% else %>
     <p>
       Like <%= share[1].get_upvotes.size %>
       DisLike <%= share[1].get_downvotes.size %>
-      <%= link_to 'Comments', user_link_path(share[0], share[1]) %>
+    <%= link_to "Comments(#{share[2]})", user_link_path(share[0], share[1]) %>
     </p>
   <% end %>
 <% end %>

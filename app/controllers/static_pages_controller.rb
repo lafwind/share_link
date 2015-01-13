@@ -7,7 +7,8 @@ class StaticPagesController < ApplicationController
       user_links = user.links.all
       user_links.each do |link|
         if link.sharing == true
-          @all_share_links << [user, link]
+          comments_count = link.comments.count
+          @all_share_links << [user, link, comments_count]
         end
       end
     end
