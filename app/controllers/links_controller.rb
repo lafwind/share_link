@@ -22,11 +22,11 @@ class LinksController < ApplicationController
     if @user != current_user && @link.sharing == false
       redirect_to login_path
     else
-      @comments = {}
+      @comments = []
       @link.comments.all.each do |comment|
         # debugger
         user_name = User.find(comment.user_id).name
-        @comments[user_name] = comment.content
+        @comments << [user_name, comment.content]
       end
     end
   end

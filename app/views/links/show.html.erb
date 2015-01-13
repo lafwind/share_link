@@ -28,6 +28,6 @@
 <% end %>
 
 <p>Comment: </p>
-<% @comments.each do |user_name, content| %>
-  <p><%= user_name %>: <%= content %></p>
+<% @comments.each do |comment| %>
+  <p><%= comment[0] %>: <%= comment[1] %></p>
 <% end %>
