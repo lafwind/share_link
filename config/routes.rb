@@ -4,6 +4,8 @@ Rails.application.routes.draw do
       resources :comments
       member do
         patch :share, :unshare
+        put "like", to: "links#upvote"
+        put "dislike", to: "links#downvote"
       end
     end
   end

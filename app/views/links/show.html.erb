@@ -1,4 +1,14 @@
 <p><%= link_to @link.title, "http://#{@link.url}" %></p>
+<p>
+  <%= link_to  like_user_link_path(@user, @link), method: :put do %>
+    Like
+    <%= @link.get_upvotes.size %>
+  <% end %>
+  <%= link_to  dislike_user_link_path(@user, @link), method: :put do %>
+    Dislike
+    <%= @link.get_downvotes.size %>
+  <% end %>
+</p>
 
 <p>Comment: </p>
 <% @comments.each do |user_name, content| %>

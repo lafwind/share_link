@@ -119,4 +119,18 @@ class LinksController < ApplicationController
     end
   end
 
+  def upvote
+    @user = User.find(params[:user_id])
+    @link = @user.links.find(params[:id])
+    @link.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @user = User.find(params[:user_id])
+    @link = @user.links.find(params[:id])
+    @link.downvote_by current_user
+    redirect_to :back
+  end
+
 end
