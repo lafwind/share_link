@@ -1,21 +1,17 @@
 <p><%= link_to @link.title, "http://#{@link.url}" %></p>
-<p>
-  <%= link_to  like_user_link_path(@user, @link), method: :put do %>
-    Like
-    <%= @link.get_upvotes.size %>
-  <% end %>
-  <%= link_to  dislike_user_link_path(@user, @link), method: :put do %>
-    Dislike
-    <%= @link.get_downvotes.size %>
-  <% end %>
-</p>
-
-<p>Comment: </p>
-<% @comments.each do |user_name, content| %>
-  <p><%= user_name %>: <%= content %></p>
-<% end %>
 
 <% if logged_in? %>
+  <p>
+    <%= link_to  like_user_link_path(@user, @link), method: :put do %>
+      Like
+      <%= @link.get_upvotes.size %>
+    <% end %>
+    <%= link_to  dislike_user_link_path(@user, @link), method: :put do %>
+      Dislike
+      <%= @link.get_downvotes.size %>
+    <% end %>
+  </p>
+
   <%= form_for([@user, @link, @link.comments.build]) do |f| %>
     <%= f.label :comment %>
     <%= f.text_area :content %>
@@ -23,6 +19,15 @@
   <% end %>
 <% else %>
   <p>
+    Like <%= @link.get_upvotes.size %>
+    DisLike <%= @link.get_downvotes.size %>
+  </p>
+  <p>
     Please <%= link_to 'log in', login_path %> to comment, don't have an account? <%= link_to 'signup', signup_path %>!
   </p>
+<% end %>
+
+<p>Comment: </p>
+<% @comments.each do |user_name, content| %>
+  <p><%= user_name %>: <%= content %></p>
 <% end %>

@@ -4,15 +4,23 @@
   <p>
     <%= link_to share[1].title, "http://#{share[1].url}" %> shared by <%= link_to share[0].name, user_links_path(share[0]) %>
   </p>
-  <p>
-    <%= link_to like_user_link_path(share[0], share[1]), method: :put do %>
-      Like
-      <%= share[1].get_upvotes.size %>
-    <% end %>
-    <%= link_to dislike_user_link_path(share[0], share[1]), method: :put do %>
-      Dislike
-      <%= share[1].get_downvotes.size%>
-    <% end %>
-    <%= link_to 'Comments', user_link_path(share[0], share[1]) %>
-  </p>
+  <% if logged_in? %>
+    <p>
+      <%= link_to like_user_link_path(share[0], share[1]), method: :put do %>
+        Like
+        <%= share[1].get_upvotes.size %>
+      <% end %>
+      <%= link_to dislike_user_link_path(share[0], share[1]), method: :put do %>
+        Dislike
+        <%= share[1].get_downvotes.size%>
+      <% end %>
+      <%= link_to 'Comments', user_link_path(share[0], share[1]) %>
+    </p>
+  <% else %>
+    <p>
+      Like <%= share[1].get_upvotes.size %>
+      DisLike <%= share[1].get_downvotes.size %>
+      <%= link_to 'Comments', user_link_path(share[0], share[1]) %>
+    </p>
+  <% end %>
 <% end %>
