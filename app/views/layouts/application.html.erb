@@ -9,20 +9,25 @@
 </head>
 <body>
 
-<%= render 'layouts/header' %>
-<div class="container">
-  <div class="row">
+  <div class="side_bar">
+    <div class="top">
+      <%= render 'layouts/header' %>
+    </div>
+    <div class="bottom">
+      <%= render 'layouts/footer' %>
+    </div>
+  </div>
+
+  <div class="main">
+    <p><a class="navbar-brand" href="#">Link You</a></p>
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
-    <div class="col-md-10 col-md-offset-1">
-      <%= yield %>
-      <hr>
-      <%= render 'layouts/footer' %>
-      <%= debug(params) if Rails.env.development? %>
-    </div>
+    <%= yield %>
+    <hr>
+    <p class="pull-right"><a href="#top">To top</a></p>
+    <%#= debug(params) if Rails.env.development? %>
   </div>
-</div>
 
 </body>
 </html>

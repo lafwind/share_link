@@ -1,55 +1,115 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+
+html {
+  height: 100%;
+}
 
 body {
-  padding-top: 70px;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 
-/* mixins, variables, etc. */
-
-$gray-medium-light: #eaeaea;
-
-@mixin box_sizing {
-  -moz-box-sizing:    border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
+a {
+  text-decoration: none;
 }
 
-
-/* miscellaneous */
-
-.debug_dump {
-  clear: both;
+.side_bar {
+  width: 240px;
+  height: 100%;
   float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
+  margin: auto;
+  padding: auto;
+  background-color: #1a1919;
+  color: #da3610;
 }
 
-/* forms */
-
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
-  @include box_sizing;
+.side_bar .top {
+  height: 80%;
 }
 
-input {
-  height: auto !important;
+.side_bar .bottom {
+  padding: 5px 20px;
 }
 
-#error_explanation {
-  color: red;
-  ul {
-    color: red;
-    margin: 0 0 30px 0;
-  }
+.side_bar li {
+  list-style-type: none;
+  margin: 5px auto;
+  padding: 5px 20px;
 }
 
-.field_with_errors {
-  @extend .has-error;
-  .form-control {
-    color: $state-danger-text;
-  }
+.side_bar a {
+  color: #666564;
+}
+
+.side_bar a:hover {
+  color: #a2a2a2;
+}
+
+.side_bar li.active {
+  background-color: #22aa22;
+  //border-radius: 1px;
+}
+
+.side_bar li.active a {
+  color: #fafafa;
+}
+
+.header_photo {
+  padding: 30px 0;
+  text-align: center;
+}
+
+.header_photo img {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+
+// .user_detail {
+//   width: 220px;
+// }
+
+.user_detail li.links {
+  float: left;
+  padding: 5px 5px 5px 20px;
+  width: 60px;
+}
+
+
+.user_detail li.profile {
+  float: left;
+  padding: 5px;
+  width: 60px;
+}
+
+.user_detail li.setting {
+  float: left;
+  padding: 5px 20px 5px 5px;
+  width: 60px;
+}
+
+hr {
+  width: 80%;
+  height: 1px;
+  border: none;
+  border-top: 1px solid #2a2a2a;
+}
+
+.side_bar .log_out {
+}
+
+
+
+
+
+
+
+.main {
+  margin: auto;
+  padding: 0 20px;
+  float: left;
+  //background-color: #f0f0f0;
 }
