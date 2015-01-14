@@ -1,26 +1,31 @@
 <h3>Links: </h3>
 
-<% @all_share_links.each do |share| %>
+<% @links.each do |link| %>
   <p>
-    <%= link_to share[1].title, "http://#{share[1].url}" %> shared by <%= link_to share[0].name, user_links_path(share[0]) %>
+    <%= link_to link.title, "http://#{link.url}" %> shared by
+    <%= link_to user_links_path(link.user_id) do %>
+      <%= User.find_by(id: link.user_id).name %>
+    <% end %>
   </p>
   <% if logged_in? %>
     <p>
-      <%= link_to like_user_link_path(share[0], share[1]), method: :put do %>
+      <%= link_to like_user_link_path(link.user_id, link), method: :put do %>
         Like
-        <%= share[1].get_upvotes.size %>
+        <%= link.get_upvotes.size %>
       <% end %>
-      <%= link_to dislike_user_link_path(share[0], share[1]), method: :put do %>
+      <%= link_to dislike_user_link_path(link.user_id, link), method: :put do %>
         Dislike
-        <%= share[1].get_downvotes.size%>
+        <%= link.get_downvotes.size%>
       <% end %>
-      <%= link_to "Comments(#{share[2]})", user_link_path(share[0], share[1]) %>
+      <%= link_to "Comments(#{link.comments.count})", user_link_path(link.user_id, link) %>
     </p>
   <% else %>
     <p>
-      Like <%= share[1].get_upvotes.size %>
-      DisLike <%= share[1].get_downvotes.size %>
-    <%= link_to "Comments(#{share[2]})", user_link_path(share[0], share[1]) %>
+      Like <%= link.get_upvotes.size %>
+      DisLike <%= link.get_downvotes.size %>
+      <%= link_to "Comments(#{link.comments.count})", user_link_path(link.user_id, link) %>
     </p>
   <% end %>
 <% end %>
+
+<%= will_paginate @links %>

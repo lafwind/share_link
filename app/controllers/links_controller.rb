@@ -3,14 +3,15 @@ class LinksController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     if @user != current_user
-      @links = []
-      all_links = @user.links.all
+      # @links = []
+      # all_links = @user.links.all
 
-      all_links.each do |link|
-        if link.sharing == true
-          @links << link
-        end
-      end
+      # all_links.each do |link|
+      #   if link.sharing == true
+      #     @links << link
+      #   end
+      # end
+      @links = @user.links.where(sharing: true).paginate(page: params[:page])
     else
       #@links = @user.links.all
       @links = @user.links.paginate(page: params[:page])
