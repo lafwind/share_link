@@ -133,32 +133,52 @@ a:hover {
 .side_bar .log_out {
 }
 
-li.logo a {
-  display: inline-block;
-  color: #22aa22;
-  margin: 40px 0;
-  font-size: 20px;
-  transition: 0.2s ease-out;
-  -moz-transition: 0.2s ease-out;
-  -webkit-transition: 0.2s ease-out;
-  -o-transition: 0.2s ease-out;
+// li.logo a {
+//   display: inline-block;
+//   color: #22aa22;
+//   margin: 40px 0;
+//   font-size: 20px;
+//   transition: 0.2s ease-out;
+//   -moz-transition: 0.2s ease-out;
+//   -webkit-transition: 0.2s ease-out;
+//   -o-transition: 0.2s ease-out;
+//
+// }
+//
+// li.logo a:hover {
+//   color: #22aa22;
+//   transform: scale(1.5);
+//   -moz-transform: scale(1.5);
+//   -ms-transform: scale(1.5);
+//   -webkit-transform: scale(1.5);
+//   -o-transform: scale(1.5);
+// }
+//
+// li.logo {
+//   height: 100px;
+//   margin: 0;
+//   padding: 0;
+//   text-align: center;
+// }
 
-}
-
-li.logo a:hover {
-  color: #22aa22;
-  transform: scale(1.5);
-  -moz-transform: scale(1.5);
-  -ms-transform: scale(1.5);
-  -webkit-transform: scale(1.5);
-  -o-transform: scale(1.5);
-}
-
-li.logo {
+li.brand {
   height: 100px;
   margin: 0;
   padding: 0;
   text-align: center;
+  background-color: #22aaaa;
+}
+
+li.brand a {
+  display: inline-block;
+  color: #f1f1f1;
+  font-size: 30px;
+  padding: 0;
+  margin: 30px 0;
+}
+
+li.brand a:hover {
+  color: #f1f1f1;
 }
 
 
