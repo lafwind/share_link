@@ -17,6 +17,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 .side_bar {
   width: 210px;
   height: 100%;
@@ -93,15 +97,23 @@ a {
 }
 
 .user_detail li.setting {
-  float: right;
+  float: left;
   padding: 5px 20px 20px 5px;
   width: 80px;
 }
 
+.user_detail li.nothing {
+  visibility: hidden;
+  float: left;
+  padding: 0;
+  margin: 0;
+  width: 55px;
+}
+
 .user_detail li.new_link {
-  clear: both;
-  padding: 5px 0;
-  margin: 0px 50px 0 50px;
+  float: left;
+  padding: 5px 20px;
+  width: 100px;
   background-color: #22aa22;
   color: #fafafa;
   border-radius: 5px;
@@ -121,7 +133,33 @@ a {
 .side_bar .log_out {
 }
 
+li.logo a {
+  display: inline-block;
+  color: #22aa22;
+  margin: 40px 0;
+  font-size: 20px;
+  transition: 0.2s ease-out;
+  -moz-transition: 0.2s ease-out;
+  -webkit-transition: 0.2s ease-out;
+  -o-transition: 0.2s ease-out;
 
+}
+
+li.logo a:hover {
+  color: #22aa22;
+  transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  -o-transform: scale(1.5);
+}
+
+li.logo {
+  height: 100px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
 
 
 
