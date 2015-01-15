@@ -6,6 +6,7 @@
     <li class="links"><%= link_to "Links", user_links_path(current_user.id) %></li>
     <li class="profile"><%= link_to "Profile", current_user %></li>
     <li class="setting"><%= link_to "Settings", edit_user_path(current_user) %></li>
+    <li class="new_link"><%= link_to "New Link", new_user_link_path(current_user) %></li>
   </div>
   <hr />
   <li class=<%= 'active' if params[:controller] == 'static_pages' && params[:action] == 'home' %>><%= link_to "Discover", root_path %></li>

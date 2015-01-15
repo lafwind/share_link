@@ -1,4 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto);
+//@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import "bootstrap";
 
 
 html {
@@ -9,7 +10,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: 'Roboto', sans-serif;
+  //font-family: 'Roboto', sans-serif;
 }
 
 a {
@@ -17,8 +18,10 @@ a {
 }
 
 .side_bar {
-  width: 240px;
+  width: 210px;
   height: 100%;
+  min-height:500px;
+  position: absolute;
   float: left;
   margin: auto;
   padding: auto;
@@ -28,6 +31,7 @@ a {
 
 .side_bar .top {
   height: 80%;
+  min-height:400px;
 }
 
 .side_bar .bottom {
@@ -49,7 +53,8 @@ a {
 }
 
 .side_bar li.active {
-  background-color: #22aa22;
+  background-color: #222222;
+  //background-color: #22aa22;
   //border-radius: 1px;
 }
 
@@ -68,31 +73,46 @@ a {
 }
 
 
-// .user_detail {
-//   width: 220px;
-// }
+.user_detail {
+  width: 210px;
+  height: 20%;
+  text-align: center;
+}
 
 .user_detail li.links {
   float: left;
-  padding: 5px 5px 5px 20px;
-  width: 60px;
+  padding: 5px 5px 20px 20px;
+  width: 70px;
 }
 
 
 .user_detail li.profile {
   float: left;
-  padding: 5px;
+  padding: 5px 5px 20px 5px;
   width: 60px;
 }
 
 .user_detail li.setting {
-  float: left;
-  padding: 5px 20px 5px 5px;
-  width: 60px;
+  float: right;
+  padding: 5px 20px 20px 5px;
+  width: 80px;
 }
 
-hr {
-  width: 80%;
+.user_detail li.new_link {
+  clear: both;
+  padding: 5px 0;
+  margin: 0px 50px 0 50px;
+  background-color: #22aa22;
+  color: #fafafa;
+  border-radius: 5px;
+}
+
+.user_detail li.new_link a {
+  color: #fafafa;
+}
+
+.side_bar hr {
+  width: 90%;
   height: 1px;
   border: none;
   border-top: 1px solid #2a2a2a;
@@ -109,7 +129,7 @@ hr {
 
 .main {
   margin: auto;
-  padding: 0 20px;
+  padding: 10px 20px 10px 230px;
   float: left;
   //background-color: #f0f0f0;
 }

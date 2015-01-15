@@ -20,7 +20,7 @@
 
   <% end %>
 
-  <p><%= link_to 'New Link', new_user_link_path %></p>
+  <p><%= link_to 'New Link', new_user_link_path(@user) %></p>
 <% else %>
   <% @links.each do |link| %>
     <p>
