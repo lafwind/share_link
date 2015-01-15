@@ -19,13 +19,10 @@
   </div>
 
   <div class="main">
-    <p><a class="navbar-brand" href="#">Link You</a></p>
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
     <%= yield %>
-    <hr>
-    <p class="pull-right"><a href="#top">To top</a></p>
     <%#= debug(params) if Rails.env.development? %>
   </div>
 

@@ -1,14 +1,15 @@
-<h3>Links: </h3>
+<div class="discover_brand">Discover: </div>
+<hr />
 
 <% @links.each do |link| %>
-  <p>
+  <div class="link_list">
     <%= link_to link.title, "http://#{link.url}" %> shared by
     <%= link_to user_links_path(link.user_id) do %>
       <%= User.find_by(id: link.user_id).name %>
     <% end %>
-  </p>
+  </div>
+  <div class="action">
   <% if logged_in? %>
-    <p>
       <%= link_to like_user_link_path(link.user_id, link), method: :put do %>
         Like
         <%= link.get_upvotes.size %>
@@ -18,14 +19,12 @@
         <%= link.get_downvotes.size%>
       <% end %>
       <%= link_to "Comments(#{link.comments.count})", user_link_path(link.user_id, link) %>
-    </p>
   <% else %>
-    <p>
       Like <%= link.get_upvotes.size %>
       DisLike <%= link.get_downvotes.size %>
       <%= link_to "Comments(#{link.comments.count})", user_link_path(link.user_id, link) %>
-    </p>
   <% end %>
+  </div>
 <% end %>
 
 <%= will_paginate @links %>
