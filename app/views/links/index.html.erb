@@ -1,33 +1,47 @@
 <% provide(:title, @user.name)%>
-<%= gravatar_for(@user) %>
 
-<h3><%= @user.name %>'s links</h3>
+<div class="page_title">
+  My links
+</div>
 
 
-<% if @user == current_user %>
-  <% @links.each do |link| %>
-    <p>
-      <%= link_to link.title, "http://#{link.url}" %>
-      <% if link.sharing == true %>
-        <%= link_to 'unshare', unshare_user_link_path(@user, link), method: :patch %>
-      <% else %>
-        <%= link_to 'share', share_user_link_path(@user, link), method: :patch %>
+<div class="page_content">
+  <div class="my_lists">
+    <% if @user == current_user %>
+      <% @links.each do |link| %>
+        <div class="link_title">
+          <%= link_to link.title, "http://#{link.url}" %>
+        </div>
+        <div class="link_action">
+          <% if link.sharing == true %>
+            <%= link_to 'unshare', unshare_user_link_path(@user, link), method: :patch %>
+          <% else %>
+            <%= link_to 'share', share_user_link_path(@user, link), method: :patch %>
+          <% end %>
+          <%= link_to 'detail', user_link_path(@user, link) %>
+          <%= link_to 'edit', edit_user_link_path(@user, link) %>
+          <%= link_to 'delete', user_link_path(@user, link), method: :delete, data: { confirm: "Are you sure" } %>
+        </div>
+
       <% end %>
-      <%= link_to 'detail', user_link_path(@user, link) %>
-      <%= link_to 'edit', edit_user_link_path(@user, link) %>
-      <%= link_to 'delete', user_link_path(@user, link), method: :delete, data: { confirm: "Are you sure" } %>
-    </p>
 
-  <% end %>
+      <div class="bottom_line">
+      </div>
 
-  <p><%= link_to 'New Link', new_user_link_path(@user) %></p>
-<% else %>
-  <% @links.each do |link| %>
-    <p>
-      <%= link_to link.title, "http://#{link.url}" %>
-      <%= link_to 'detail', user_link_path(@user, link) %>
-    </p>
-  <% end %>
-<% end %>
+      <p><%#= link_to 'New Link', new_user_link_path(@user) %></p>
+      <% else %>
+        <% @links.each do |link| %>
+          <p>
+            <%= link_to link.title, "http://#{link.url}" %>
+            <%= link_to 'detail', user_link_path(@user, link) %>
+          </p>
+        <% end %>
+        <div class="bottom_line">
+        </div>
+      <% end %>
+  </div>
 
-<%= will_paginate @links %>
+  <div class="page_count">
+    <%= will_paginate @links %>
+  </div>
+</div>
