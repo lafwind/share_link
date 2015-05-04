@@ -32,9 +32,8 @@ class UsersController < ApplicationController
     if @user != current_user
       redirect_to root_url
     else
-      if @user.update_attributes(params.require(:user).permit(
-        :password, :password_confirmation))
-      #if @user.authenticate(params[:user][:password])
+      if @user.update_attributes(update_user_params)
+        #if @user.authenticate(params[:user][:password])
         # change password
         redirect_to current_user
       else
@@ -49,5 +48,9 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password,
                                   :password_confirmation)
+    end
+
+    def update_user_params
+      params.require(:user).permit( :password, :password_confirmation)
     end
 end
