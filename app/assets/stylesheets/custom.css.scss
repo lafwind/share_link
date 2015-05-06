@@ -234,16 +234,22 @@ li.brand a {
 
 // discover page
 
-.main .link_list {
-  width: 100%;
-  background-color: #f1f1f1;
+// .main .link_list {
+//   padding: 5px 0;
+//   margin: 5px 0;
+//   width: 100%;
+//   background-color: #f1f1f1;
+// }
+
+.main .link_item {
+  padding: 5px 0;
+  margin: 5px 0;
+}
+.main .link_item a {
+  color: #228989;
 }
 
-.main .link_list a {
-  color: #756b8b;
-}
-
-.main .action {
+.main .link_item .action {
 }
 
 
