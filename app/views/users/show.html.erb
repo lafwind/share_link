@@ -1,5 +1,21 @@
 <% provide(:title, @user.name)%>
-<%= gravatar_for(@user) %>
 
-<p><%= @user.name %>, <%= @user.email %></p>
-<%= link_to 'Links', user_links_path(@user, @link) %>
+<div class="page_title">
+  Profile
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="header_photo">
+      <%= gravatar_for(@user) %>
+    </div>
+
+    <div class="info">
+      <p><%= @user.name %></p>
+      <p><%= @user.email %></p>
+      <%= link_to 'My Links', user_links_path(@user, @link) %>
+    </div>
+
+  </div>
+
+</div>

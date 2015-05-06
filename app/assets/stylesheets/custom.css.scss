@@ -25,7 +25,7 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: #22dddd;
+  color: #22aaaa;
 }
 
 //side bar
@@ -132,8 +132,8 @@ a:hover {
   float: left;
   padding: 5px 20px;
   width: 100px;
-  background-color: #22aa22;
-  color: #fafafa;
+  background-color: #22aaaa; //22aa22
+  color: #ffffff;
   border-radius: 5px;
 }
 
@@ -314,8 +314,6 @@ input {
   height: auto !important;
 }
 
-
-
 form label {
   font-weight: normal;
 }
@@ -350,4 +348,11 @@ form label.checkbox~p {
   float: right;
   width: 100px;
   margin: 10px 0;
+}
+
+
+// info
+
+.info {
+  text-align: center;
 }

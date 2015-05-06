@@ -6,10 +6,14 @@
   <div class="form">
     <%= form_for([@user, @user.links.build]) do |f| %>
       <%= f.label :title %>
-      <%= f.text_field :title %>
+      <%= f.text_field :title, placeholder: "Page title" %>
       <%= f.label :url %>
-      <%= f.text_field :url %>
-      <%= f.submit "Create" %>
+      <%= f.text_field :url, placeholder: "\" http(s):// \" is not need !"%>
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <%= f.submit "Create", class: "new-btn" %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

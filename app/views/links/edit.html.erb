@@ -1,9 +1,9 @@
-<h3> Edit the link: </h3>
+<div clas="page_title"> Edit the link: </div>
 
 <%= form_for([@user, @link]) do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :url %>
   <%= f.text_field :url %>
-  <%= f.submit 'Update'%>
+  <%= f.submit 'Update', class: "new-btn"%>
 <% end %>
