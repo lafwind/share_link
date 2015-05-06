@@ -246,7 +246,7 @@ li.brand a {
   margin: 5px 0;
 }
 .main .link_item a {
-  color: #228989;
+  color: #756b8b;
 }
 
 .main .link_item .action {
@@ -362,4 +362,20 @@ form label.checkbox~p {
 
 .info {
   text-align: center;
+}
+
+// comment
+
+.comments_form input, textarea, select, .uneditable-input {
+  background-color: #f6f6f6;
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+
+  @include box_sizing;
+
+}
+
+form input:focus {
+  border-bottom: 1px solid #22cccc;
 }

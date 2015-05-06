@@ -19,15 +19,17 @@
         <% end %>
       </p>
 
-      <%= form_for([@user, @link, @link.comments.build]) do |f| %>
-        <%= f.label :comment %>
-        <%= f.text_area :content %>
-        <div class="row">
-          <div class="col-md-3 col-md-offset-9">
-            <%= f.submit "submit", class: "new-btn" %>
+      <div class="commnets_form">
+        <%= form_for([@user, @link, @link.comments.build]) do |f| %>
+          <%= f.label :comment %>
+          <%= f.text_area :content %>
+          <div class="row">
+            <div class="col-md-3 col-md-offset-9">
+              <%= f.submit "submit", class: "new-btn" %>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     <% else %>
       <p>
         Like <%= @link.get_upvotes.size %>
