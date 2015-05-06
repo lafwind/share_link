@@ -8,7 +8,7 @@
     <% end %>
   </div>
   <div class="action">
-  <% if logged_in? %>
+    <% if logged_in? %>
       <%= link_to like_user_link_path(link.user_id, link), method: :put do %>
         Like
         <%= link.get_upvotes.size %>
@@ -18,11 +18,11 @@
         <%= link.get_downvotes.size%>
       <% end %>
       <%= link_to "Comments(#{link.comments.count})", user_link_path(link.user_id, link) %>
-  <% else %>
+    <% else %>
       Like <%= link.get_upvotes.size %>
       DisLike <%= link.get_downvotes.size %>
       <%= link_to "Comments(#{link.comments.count})", user_link_path(link.user_id, link) %>
-  <% end %>
+    <% end %>
   </div>
 <% end %>
 

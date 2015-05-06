@@ -1,6 +1,9 @@
 //@import url(http://fonts.googleapis.com/css?family=Roboto);
 @import "bootstrap";
 
+*:focus {
+  outline: none;
+}
 
 html {
   height: 100%;
@@ -17,10 +20,12 @@ body {
 
 a {
   text-decoration: none;
+  color: #22cccc;
 }
 
 a:hover {
   text-decoration: none;
+  color: #22dddd;
 }
 
 //side bar
@@ -35,7 +40,7 @@ a:hover {
   margin: auto;
   padding: auto;
   background-color: #1a1919;
-  color: #da3610;
+  color: #22cccc; //da3610
   //border: 1px red solid;
 }
 
@@ -64,7 +69,7 @@ a:hover {
 
 .side_bar li.active {
   background-color: #222222;
-  border-left: 2px #22aaaa solid;
+  border-left: 2px #22cccc solid;
   padding: 10px 20px 10px 18px;
   //background-color: #22aa22;
   //border-radius: 1px;
@@ -147,51 +152,47 @@ a:hover {
 }
 
 // li.logo a {
-//   display: inline-block;
-//   color: #22aa22;
-//   margin: 40px 0;
-//   font-size: 20px;
-//   transition: 0.2s ease-out;
-//   -moz-transition: 0.2s ease-out;
-//   -webkit-transition: 0.2s ease-out;
-//   -o-transition: 0.2s ease-out;
-//
-// }
+  //   display: inline-block;
+  //   color: #22aa22;
+  //   margin: 40px 0;
+  //   font-size: 20px;
+  //   transition: 0.2s ease-out;
+  //   -moz-transition: 0.2s ease-out;
+  //   -webkit-transition: 0.2s ease-out;
+  //   -o-transition: 0.2s ease-out;
+  //
+  // }
 //
 // li.logo a:hover {
-//   color: #22aa22;
-//   transform: scale(1.5);
-//   -moz-transform: scale(1.5);
-//   -ms-transform: scale(1.5);
-//   -webkit-transform: scale(1.5);
-//   -o-transform: scale(1.5);
-// }
+  //   color: #22aa22;
+  //   transform: scale(1.5);
+  //   -moz-transform: scale(1.5);
+  //   -ms-transform: scale(1.5);
+  //   -webkit-transform: scale(1.5);
+  //   -o-transform: scale(1.5);
+  // }
 //
 // li.logo {
-//   height: 100px;
-//   margin: 0;
-//   padding: 0;
-//   text-align: center;
-// }
+  //   height: 100px;
+  //   margin: 0;
+  //   padding: 0;
+  //   text-align: center;
+  // }
 
 li.brand {
   height: 100px;
   margin: 0;
   padding: 0;
   text-align: center;
-  background-color: #22aaaa;
+  background-color: #22cccc;
 }
 
 li.brand a {
   display: inline-block;
-  color: #f1f1f1;
+  color: #ffffff;
   font-size: 30px;
   padding: 0;
   margin: 30px 0;
-}
-
-li.brand a:hover {
-  color: #f1f1f1;
 }
 
 
@@ -205,9 +206,9 @@ li.brand a:hover {
   min-height:600px;
   margin: 0 0 0 210px;
   padding: 0 15%;
-  //background-color: #f9f9f9;
-  //border: 1px red solid;
-  //background-color: #f0f0f0;
+  // background-color: #f9f9f9;
+  // border: 1px red solid;
+  // background-color: #f0f0f0;
   background-color: #f6f6f6;
 }
 
@@ -285,4 +286,68 @@ li.brand a:hover {
   display: inline-block;
   word-wrap: break-word;
   color: #756b8b;
+}
+
+// forms
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+form input, textarea, select, .uneditable-input {
+  background-color: #f6f6f6;
+  border: 0 solid #bbb;
+  border-bottom: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+
+  @include box_sizing;
+
+}
+form input:focus {
+  border-bottom: 1px solid #22cccc;
+}
+
+input {
+  height: auto !important;
+}
+
+
+
+form label {
+  font-weight: normal;
+}
+
+form .new-btn {
+  border: 1px #22dddd solid;
+  border-radius: 5px;
+  margin: 15px 0;
+  padding: 10px 0;
+  background-color: #22dddd;
+  color: #ffffff;
+  transition: 0.2s ease-out;
+}
+
+form .new-btn:hover {
+  background-color: #22d1d1;
+}
+
+form label.checkbox {
+  display: inline-block;
+  height: 20px;
+  width: 115px;
+}
+
+form label.checkbox input[type="checkbox"] {
+  position: static;
+  margin: 0;
+  width: 15px;
+}
+form label.checkbox~p {
+  display: inline-block;
+  float: right;
+  width: 100px;
+  margin: 10px 0;
 }
