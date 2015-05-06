@@ -20,12 +20,12 @@ body {
 
 a {
   text-decoration: none;
-  color: #22cccc;
+  color: #756b8b;
 }
 
 a:hover {
   text-decoration: none;
-  color: #22aaaa;
+  color: #756baa;
 }
 
 //side bar
@@ -264,16 +264,16 @@ li.brand a {
 
 .main .page_content .link_title {
   float: left;
-  width: 78%;
-  min-width: 419px;
+  width: 70%;
+  min-width: 399px;
   padding: 10px;
   border-top: 1px #eeeeee solid;
   border-right: 1px #eeeeee solid;
 }
 
 .main .page_content .link_action {
-  float: left;
-  width: 22%;
+  float: right;
+  width: 30%;
   min-width: 151px;
   padding: 10px;
   border-top: 1px #eeeeee solid;
