@@ -14,13 +14,23 @@
         </div>
         <div class="link_action">
           <% if link.sharing == true %>
-            <%= link_to 'unshare', unshare_user_link_path(@user, link), method: :patch %>
+            <%= link_to unshare_user_link_path(@user, link), method: :patch do %>
+              <span class="glyphicon glyphicon-ban-circle"></span>
+            <% end %>
           <% else %>
-            <%= link_to 'share', share_user_link_path(@user, link), method: :patch %>
+            <%= link_to share_user_link_path(@user, link), method: :patch do %>
+              <span class="glyphicon glyphicon-share"></span>
+            <% end %>
           <% end %>
-          <%= link_to 'detail', user_link_path(@user, link) %>
-          <%= link_to 'edit', edit_user_link_path(@user, link) %>
-          <%= link_to 'delete', user_link_path(@user, link), method: :delete, data: { confirm: "Are you sure" } %>
+          <%= link_to user_link_path(@user, link) do %>
+            <span class="glyphicon glyphicon-expand"></span>
+          <% end %>
+          <%= link_to edit_user_link_path(@user, link) do %>
+            <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
+          <%= link_to user_link_path(@user, link), method: :delete, data: { confirm: "Are you sure" } do %>
+            <span class="glyphicon glyphicon-trash"></span>
+          <% end %>
         </div>
 
       <% end %>
@@ -31,10 +41,15 @@
       <p><%#= link_to 'New Link', new_user_link_path(@user) %></p>
       <% else %>
         <% @links.each do |link| %>
-          <p>
+          <div class="link_title">
             <%= link_to link.title, "http://#{link.url}" %>
-            <%= link_to 'detail', user_link_path(@user, link) %>
-          </p>
+          </div>
+
+          <div class="link_action">
+            <%= link_to user_link_path(@user, link) do %>
+              <span class="glyphicon glyphicon-expand"></span>
+            <% end %>
+          </div>
         <% end %>
         <div class="bottom_line">
         </div>
