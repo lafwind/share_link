@@ -12,34 +12,37 @@
 
       </div>
 
+
       <div class="col-md-3">
-        <% if logged_in? %>
-          <%= link_to like_user_link_path(link.user_id, link), method: :put do %>
+        <div class="action">
+          <% if logged_in? %>
+            <%= link_to like_user_link_path(link.user_id, link), method: :put do %>
+              <span class="glyphicon glyphicon-thumbs-up"></span>
+              <%= link.get_upvotes.size %>
+            <% end %>
+            <%= link_to dislike_user_link_path(link.user_id, link), method: :put do %>
+              <span class="glyphicon glyphicon-thumbs-down"></span>
+              <%= link.get_downvotes.size%>
+            <% end %>
+            <%= link_to user_link_path(link.user_id, link) do %>
+              <span class="glyphicon glyphicon-comment"></span>
+              <%= " #{link.comments.count}" %>
+            <% end %>
+
+          <% else %>
             <span class="glyphicon glyphicon-thumbs-up"></span>
             <%= link.get_upvotes.size %>
-          <% end %>
-          <%= link_to dislike_user_link_path(link.user_id, link), method: :put do %>
+
             <span class="glyphicon glyphicon-thumbs-down"></span>
-            <%= link.get_downvotes.size%>
+            <%= link.get_downvotes.size %>
+
+            <%= link_to user_link_path(link.user_id, link) do %>
+              <span class="glyphicon glyphicon-comment"></span>
+              <%= " #{link.comments.count}" %>
+            <% end %>
+
           <% end %>
-          <%= link_to user_link_path(link.user_id, link) do %>
-            <span class="glyphicon glyphicon-comment"></span>
-            <%= " #{link.comments.count}" %>
-          <% end %>
-
-        <% else %>
-          <span class="glyphicon glyphicon-thumbs-up"></span>
-          <%= link.get_upvotes.size %>
-
-          <span class="glyphicon glyphicon-thumbs-down"></span>
-          <%= link.get_downvotes.size %>
-
-          <%= link_to user_link_path(link.user_id, link) do %>
-            <span class="glyphicon glyphicon-comment"></span>
-            <%= " #{link.comments.count}" %>
-          <% end %>
-
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
