@@ -106,7 +106,9 @@ class LinksController < ApplicationController
     else
       @link = @user.links.find(params[:id])
       @link.update_attribute(:sharing, true)
-      redirect_to user_links_path, notice: "Link had been shared!"
+      # redirect_to user_links_path, notice: "Link had been shared!"
+      flash[:success] = "Link had been shared"
+      redirect_to user_links_path
     end
   end
 
@@ -117,7 +119,9 @@ class LinksController < ApplicationController
     else
       @link = @user.links.find(params[:id])
       @link.update_attribute(:sharing, false)
-      redirect_to user_links_path, notice: "Unshared the link now!"
+      # redirect_to user_links_path, notice: "Unshared the link now!"
+      flash[:error] = "Unshared the link now"
+      redirect_to user_links_path
     end
   end
 

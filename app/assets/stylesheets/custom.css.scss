@@ -261,6 +261,10 @@ li.brand a {
   margin: 5px 0;
 }
 
+.main .link_item:hover {
+  background: #fafafa;
+}
+
 .main .page_content .link_item .container {
   width: 100%;
 }
@@ -398,4 +402,27 @@ form label.checkbox~p {
 
 form input:focus {
   border-bottom: 1px solid #22cccc;
+}
+
+// alert
+
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-top: 0;
+  border-radius: 0 0 10px 10px;
+  text-align: center;
+}
+
+.alert-success {
+  background: #f6f6f6;
+  border-color: #22cccc;
+  color: #22aaaa;
+}
+
+.alert-error {
+  background: #f6f6f6;
+  border-color: #ff9999;
+  color: #ff6666;
 }
