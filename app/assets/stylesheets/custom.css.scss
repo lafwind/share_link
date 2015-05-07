@@ -1,12 +1,19 @@
 //@import url(http://fonts.googleapis.com/css?family=Roboto);
 @import "bootstrap";
 
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
 *:focus {
   outline: none;
 }
 
 html {
   height: 100%;
+  @include  box_sizing;
 }
 
 body {
@@ -15,6 +22,7 @@ body {
   height: 100%;
   background-color: #f6f6f6;
   position: relative;
+  @include  box_sizing;
   //font-family: 'Roboto', sans-serif;
 }
 
@@ -199,13 +207,15 @@ li.brand a {
 // main page
 
 .main {
+  @include box_sizing;
   float: left;
   //position: absolute;
-  min-width: 1000px;
+  width: 100%;
+  min-width: 1350px;
   height: 100%;
   min-height:600px;
-  margin: 0 0 0 210px;
-  padding: 0 15%;
+  //margin: 0 0 0 210px;
+  padding: 0 250px 0 460px;
   // background-color: #f9f9f9;
   // border: 1px red solid;
   // background-color: #f0f0f0;
@@ -227,6 +237,7 @@ li.brand a {
 
 .main .page_content {
   width: 100%;
+  min-width: 600px;
   height: 80%;
   min-height: 470px;
 }
@@ -245,8 +256,16 @@ li.brand a {
   padding: 5px 0;
   margin: 5px 0;
 }
+
+.main .page_content .link_item .container {
+  width: 100%;
+}
 .main .link_item a {
   color: #756b8b;
+}
+
+.main .link_item .title {
+//  padding: 0;
 }
 
 .main .link_item .action {
@@ -298,11 +317,7 @@ li.brand a {
 
 // forms
 
-@mixin box_sizing {
-  -moz-box-sizing:    border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
-}
+
 
 form input, textarea, select, .uneditable-input {
   background-color: #f6f6f6;
