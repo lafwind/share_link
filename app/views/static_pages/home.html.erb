@@ -34,11 +34,13 @@
                 <% end %>
 
               <% else %>
-                <span class="glyphicon glyphicon-thumbs-up"></span>
-                <%= link.get_upvotes.size %>
+                <span class="unvotable">
+                  <span class="glyphicon glyphicon-thumbs-up"></span>
+                  <%= link.get_upvotes.size %>
 
-                <span class="glyphicon glyphicon-thumbs-down"></span>
-                <%= link.get_downvotes.size %>
+                  <span class="glyphicon glyphicon-thumbs-down"></span>
+                  <%= link.get_downvotes.size %>
+                </span>
 
                 <%= link_to user_link_path(link.user_id, link) do %>
                   <span class="glyphicon glyphicon-comment"></span>
