@@ -1,9 +1,18 @@
-<div clas="page_title"> Edit the link: </div>
+<div class="page_title">
+  Edit the link
+</div>
 
-<%= form_for([@user, @link]) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :url %>
-  <%= f.text_field :url %>
-  <%= f.submit 'Update', class: "new-btn"%>
-<% end %>
+<div class="page_content">
+
+  <%= form_for([@user, @link]) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <%= f.submit 'Update', class: "new-btn"%>
+      </div>
+    </div>
+  <% end %>
+</div>
