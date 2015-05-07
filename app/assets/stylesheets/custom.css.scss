@@ -262,7 +262,7 @@ li.brand a {
 }
 
 .main .link_item:hover {
-  background: #fafafa;
+  background: #fdfdfd;
 }
 
 .main .page_content .link_item .container {
@@ -288,6 +288,14 @@ li.brand a {
   border-right: 1px #eeeeee solid;
   border-left: 1px #eeeeee solid;
   background-color: #fafafa;
+}
+
+.main .page_content .my_lists .my_item {
+  height: 41px;
+}
+
+.main .page_content .my_lists .my_item:hover {
+  background: #f6f6f6;
 }
 
 .main .page_content .link_title {

@@ -9,28 +9,30 @@
   <div class="my_lists">
     <% if @user == current_user %>
       <% @links.each do |link| %>
-        <div class="link_title">
-          <%= link_to link.title, "http://#{link.url}" %>
-        </div>
-        <div class="link_action">
-          <% if link.sharing == true %>
-            <%= link_to unshare_user_link_path(@user, link), method: :patch do %>
-              <span class="glyphicon glyphicon-ban-circle"></span>
+        <div class="my_item">
+          <div class="link_title">
+            <%= link_to link.title, "http://#{link.url}" %>
+          </div>
+          <div class="link_action">
+            <% if link.sharing == true %>
+              <%= link_to unshare_user_link_path(@user, link), method: :patch do %>
+                <span class="glyphicon glyphicon-ban-circle"></span>
+              <% end %>
+            <% else %>
+              <%= link_to share_user_link_path(@user, link), method: :patch do %>
+                <span class="glyphicon glyphicon-share"></span>
+              <% end %>
             <% end %>
-          <% else %>
-            <%= link_to share_user_link_path(@user, link), method: :patch do %>
-              <span class="glyphicon glyphicon-share"></span>
+            <%= link_to user_link_path(@user, link) do %>
+              <span class="glyphicon glyphicon-expand"></span>
             <% end %>
-          <% end %>
-          <%= link_to user_link_path(@user, link) do %>
-            <span class="glyphicon glyphicon-expand"></span>
-          <% end %>
-          <%= link_to edit_user_link_path(@user, link) do %>
-            <span class="glyphicon glyphicon-edit"></span>
-          <% end %>
-          <%= link_to user_link_path(@user, link), method: :delete, data: { confirm: "Are you sure" } do %>
-            <span class="glyphicon glyphicon-trash"></span>
-          <% end %>
+            <%= link_to edit_user_link_path(@user, link) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+            <% end %>
+            <%= link_to user_link_path(@user, link), method: :delete, data: { confirm: "Are you sure" } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+          </div>
+            <% end %>
         </div>
 
       <% end %>
@@ -39,8 +41,10 @@
       </div>
 
       <p><%#= link_to 'New Link', new_user_link_path(@user) %></p>
-      <% else %>
-        <% @links.each do |link| %>
+    <% else %>
+
+      <% @links.each do |link| %>
+        <div class="my_item">
           <div class="link_title">
             <%= link_to link.title, "http://#{link.url}" %>
           </div>
@@ -50,10 +54,12 @@
               <span class="glyphicon glyphicon-expand"></span>
             <% end %>
           </div>
-        <% end %>
-        <div class="bottom_line">
         </div>
       <% end %>
+      <div class="bottom_line">
+      </div>
+
+    <% end %>
   </div>
 
   <div class="page_count">
