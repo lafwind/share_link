@@ -10,11 +10,11 @@
     <% if logged_in? %>
       <p>
         <%= link_to  like_user_link_path(@user, @link), method: :put do %>
-          Like
+          <span class="glyphicon glyphicon-thumbs-up"></span>
           <%= @link.get_upvotes.size %>
         <% end %>
         <%= link_to  dislike_user_link_path(@user, @link), method: :put do %>
-          Dislike
+          <span class="glyphicon glyphicon-thumbs-down"></span>
           <%= @link.get_downvotes.size %>
         <% end %>
       </p>
@@ -32,8 +32,10 @@
       </div>
     <% else %>
       <p>
-        Like <%= @link.get_upvotes.size %>
-        DisLike <%= @link.get_downvotes.size %>
+        <span class="glyphicon glyphicon-thumbs-up"></span>
+        <%= @link.get_upvotes.size %>
+        <span class="glyphicon glyphicon-thumbs-down"></span>
+        <%= @link.get_downvotes.size %>
       </p>
       <p>
         Please <%= link_to 'log in', login_path %> to comment, don't have an account? <%= link_to 'signup', signup_path %>!
