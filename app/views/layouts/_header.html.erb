@@ -3,10 +3,20 @@
     <%= gravatar_for(current_user) %>
   </div>
   <div class="user_detail">
-    <li class="links"><%= link_to "Links", user_links_path(current_user.id) %></li>
-    <li class="profile"><%= link_to "Profile", current_user %></li>
-    <li class="setting"><%= link_to "Settings", edit_user_path(current_user) %></li>
+    <li class="links <%= 'select' if params[:controller] == 'links' && params[:action] == 'index'%>">
+      <%= link_to "Links", user_links_path(current_user.id) %>
+    </li>
+
+    <li class="profile <%= 'select' if params[:controller] == 'users' && params[:action] == 'show'%>">
+      <%= link_to "Profile", current_user %>
+    </li>
+
+    <li class="setting <%= 'select' if params[:controller] == 'users' && params[:action] == 'edit'%>">
+      <%= link_to "Settings", edit_user_path(current_user) %>
+    </li>
+
     <li class="nothing">.</li>
+
     <%= link_to  new_user_link_path(current_user) do %>
       <li class="new_link">New Link</li>
     <% end %>
