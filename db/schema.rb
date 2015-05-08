@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150113124934) do
+ActiveRecord::Schema.define(version: 20150508145652) do
 
   create_table "comments", force: true do |t|
     t.string   "content"
@@ -26,10 +26,11 @@ ActiveRecord::Schema.define(version: 20150113124934) do
   create_table "links", force: true do |t|
     t.string   "title"
     t.string   "url"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "user_id"
-    t.boolean  "sharing",    default: false
+    t.boolean  "sharing",     default: false
+    t.string   "description"
   end
 
   add_index "links", ["user_id"], name: "index_links_on_user_id"

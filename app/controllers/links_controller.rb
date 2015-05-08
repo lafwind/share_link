@@ -47,7 +47,7 @@ class LinksController < ApplicationController
     if @user != current_user
       redirect_to root_url
     else
-      @link = @user.links.create(params[:link].permit(:title, :url))
+      @link = @user.links.create(params[:link].permit(:title, :description, :url))
 
       respond_to do |format|
         if @link.save
@@ -77,7 +77,7 @@ class LinksController < ApplicationController
     else
       @link = @user.links.find(params[:id])
       respond_to do |format|
-        if @link.update_attributes(params[:link].permit(:title, :url))
+        if @link.update_attributes(params[:link].permit(:title, :description, :url))
           flash[:success] = "Update successfully!"
           format.html { redirect_to user_links_path(@user) }
         else
