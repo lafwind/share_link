@@ -217,6 +217,7 @@ li.brand a {
   width: 100%;
   min-width: 1350px;
   height: 100%;
+  // max-height: 669px;
   min-height:600px;
   //margin: 0 0 0 210px;
   padding: 0 250px 0 460px;
@@ -242,7 +243,7 @@ li.brand a {
 .main .page_content {
   width: 100%;
   min-width: 600px;
-  height: 80%;
+  height: auto;
   min-height: 470px;
 }
 
@@ -420,7 +421,7 @@ form input:focus {
 
 .alert {
   padding: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border: 1px solid transparent;
   border-top: 0;
   border-radius: 0 0 10px 10px;
