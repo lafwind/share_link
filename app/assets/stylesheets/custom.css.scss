@@ -424,18 +424,30 @@ form input:focus {
   margin-bottom: 10px;
   border: 1px solid transparent;
   border-top: 0;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0;
   text-align: center;
 }
 
 .alert-success {
   background: #f6f6f6;
-  border-color: #22cccc;
-  color: #22aaaa;
+  border-color: #caf2f2;
+  color: #55dada;
 }
 
 .alert-error {
   background: #f6f6f6;
-  border-color: #ff9999;
-  color: #ff6666;
+  border-color: #f2dede;
+  color: #fe9999;
+}
+
+.alert-danger {
+  border-radius: 0;
+}
+
+#error_explanation {
+  border: 1px solid transparent;
+  border-color: #f2dede;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  color: #fe9999;
 }
