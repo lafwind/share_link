@@ -1,7 +1,9 @@
 class LinksController < ApplicationController
 
+  before_action :find_user
+  before_action :find_link, only: [:upvote, :downvote]
+
   def index
-    @user = User.find(params[:user_id])
     if @user != current_user
       # @links = []
       # all_links = @user.links.all
@@ -11,15 +13,14 @@ class LinksController < ApplicationController
       #     @links << link
       #   end
       # end
-      @links = @user.links.where(sharing: true).paginate(page: params[:page])
+      @links = @user.links.where(sharing: true).order("created_at DESC").paginate(page: params[:page])
     else
       #@links = @user.links.all
-      @links = @user.links.paginate(page: params[:page])
+      @links = @user.links.order("created_at DESC").paginate(page: params[:page])
     end
   end
 
   def show
-    @user = User.find(params[:user_id])
     @link = @user.links.find(params[:id])
     if @user != current_user && @link.sharing == false
       redirect_to login_path
@@ -34,7 +35,6 @@ class LinksController < ApplicationController
   end
 
   def new
-    @user = User.find(params[:user_id])
     if @user != current_user
       redirect_to root_url
     else
@@ -43,11 +43,10 @@ class LinksController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
     if @user != current_user
       redirect_to root_url
     else
-      @link = @user.links.create(params[:link].permit(:title, :description, :url))
+      @link = @user.links.create(link_params)
 
       respond_to do |format|
         if @link.save
@@ -62,7 +61,6 @@ class LinksController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:user_id])
     if @user != current_user
       redirect_to root_url
     else
@@ -71,13 +69,12 @@ class LinksController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:user_id])
     if @user != current_user
       redirect_to root_url
     else
       @link = @user.links.find(params[:id])
       respond_to do |format|
-        if @link.update_attributes(params[:link].permit(:title, :description, :url))
+        if @link.update_attributes(link_params)
           flash[:success] = "Update successfully!"
           format.html { redirect_to user_links_path(@user) }
         else
@@ -89,7 +86,6 @@ class LinksController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:user_id])
     if @user != current_user
       redirect_to root_url
     else
@@ -100,7 +96,6 @@ class LinksController < ApplicationController
   end
 
   def share
-    @user = User.find(params[:user_id])
     if @user != current_user
       redirect_to root_url
     else
@@ -113,7 +108,6 @@ class LinksController < ApplicationController
   end
 
   def unshare
-    @user = User.find(params[:user_id])
     if @user != current_user
       redirect_to root_url
     else
@@ -126,17 +120,28 @@ class LinksController < ApplicationController
   end
 
   def upvote
-    @user = User.find(params[:user_id])
-    @link = @user.links.find(params[:id])
     @link.upvote_by current_user
     redirect_to :back
   end
 
   def downvote
-    @user = User.find(params[:user_id])
-    @link = @user.links.find(params[:id])
     @link.downvote_by current_user
     redirect_to :back
+  end
+
+  private
+
+  def link_params
+    params.require(:link).permit(:title, :description, :url)
+  end
+
+  def find_user
+    @user = User.find(params[:user_id])
+  end
+
+  def find_link
+    find_user
+    @link = @user.links.find(params[:id])
   end
 
 end
