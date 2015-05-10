@@ -4,4 +4,7 @@ class Link < ActiveRecord::Base
   has_many :comments
 
   self.per_page = 10
+
+  validates :title, presence: true
+  validates :url, presence: true
 end

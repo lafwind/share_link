@@ -5,6 +5,7 @@
 <div class = "page_content">
   <div class="form">
     <%= form_for([@user, @user.links.build]) do |f| %>
+      <%= render 'shared/error_messages' %>
       <%= f.label :title %>
       <%= f.text_field :title, placeholder: "Page title" %>
       <%= f.label :description %>

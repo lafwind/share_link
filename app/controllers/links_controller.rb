@@ -53,7 +53,7 @@ class LinksController < ApplicationController
           flash[:success] = "Create new link successfully!"
           format.html { redirect_to user_links_path(@user) }
         else
-          flash[:error] = "Some error!"
+          # flash[:error] = "Some error!"
           format.html { render 'new' }
         end
       end
