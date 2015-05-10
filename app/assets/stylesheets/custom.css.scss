@@ -266,7 +266,7 @@ li.brand a {
   background: #fdfdfd;
 }
 
-.main .page_content .link_item .container {
+.main .page_content .container {
   width: 100%;
 }
 .main .link_item a {
@@ -283,6 +283,21 @@ li.brand a {
 
 .unvotable {
   color: #afafaf;
+}
+
+.page_content .ranked_by {
+  width: 100%;
+  display: inline-block;
+  margin: 20px 0;
+  text-align: right;
+}
+
+.page_content .ranked_by .selected {
+  color: #803a8a;
+}
+
+.page_content .ranked_by .unselected {
+  color: #afafaf
 }
 
 

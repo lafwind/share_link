@@ -56,5 +56,29 @@
     </div>
   <% end %>
 
-  <%= will_paginate @links %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <%= will_paginate @links %>
+      </div>
+      <div class="col-md-4">
+        <div class="ranked_by">
+
+          Ranked by :
+          <% @ranked_by.each do |item| %>
+            <% if (params[:ranked_by].blank? && item[:name] == "hottest") || params[:ranked_by] == item[:name] %>
+              <%= link_to item[:name].capitalize, root_path(ranked_by: item[:name]), class: "selected" %>
+            <% else %>
+              <%= link_to item[:name].capitalize, root_path(ranked_by: item[:name]), class: "unselected" %>
+            <% end %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
 </div>
