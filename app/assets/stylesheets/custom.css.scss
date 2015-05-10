@@ -365,6 +365,7 @@ form input, textarea, select, .uneditable-input {
   @include box_sizing;
 
 }
+
 form input:focus {
   border-bottom: 1px solid #22cccc;
 }
@@ -416,20 +417,14 @@ form label.checkbox~p {
   text-align: center;
 }
 
-// comment
+// form textarea
 
-.comments_form input, textarea, select, .uneditable-input {
-  background-color: #f6f6f6;
+form textarea {
   border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
-
-  @include box_sizing;
-
 }
 
-form input:focus {
-  border-bottom: 1px solid #22cccc;
+form textarea:focus {
+  border: 1px solid #22cccc;
 }
 
 // alert
