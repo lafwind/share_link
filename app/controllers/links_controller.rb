@@ -121,11 +121,13 @@ class LinksController < ApplicationController
 
   def upvote
     @link.upvote_by current_user
+    @link.update_attribute(:like_count, @link.get_upvotes.size)
     redirect_to :back
   end
 
   def downvote
     @link.downvote_by current_user
+    @link.update_attribute(:like_count, @link.get_upvotes.size)
     redirect_to :back
   end
 

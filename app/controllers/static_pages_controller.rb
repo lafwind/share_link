@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
     @users = User.all
     # @all_share_links = []
 
-    @links = Link.where(user_id: @users, sharing: true).order("created_at DESC").paginate(page: params[:page], per_page: 10)
+    @links = Link.where(user_id: @users, sharing: true).order("like_count DESC").order("created_at DESC").paginate(page: params[:page], per_page: 10)
     # @users.each do |user|
     #   user_links = user.links.all
     #   user_links.each do |link|
