@@ -1,7 +1,9 @@
 class StaticPagesController < ApplicationController
   def home
     @ranked_by = [
-      {name: "hottest"}, {name: "newest"}
+      { name: "hottest" },
+      { name: "newest" },
+      { name: "popular" }
     ]
 
     @users = User.all
@@ -9,8 +11,10 @@ class StaticPagesController < ApplicationController
 
     if params[:ranked_by].blank? || params[:ranked_by] == "hottest"
       @links = Link.where(user_id: @users, sharing: true).order("like_count DESC").order("created_at DESC").paginate(page: params[:page], per_page: 10)
-    elsif params[:ranked_by] = "newest"
+    elsif params[:ranked_by] == "newest"
       @links = Link.where(user_id: @users, sharing: true).order("created_at DESC").paginate(page: params[:page], per_page: 10)
+    elsif params[:ranked_by] == "popular"
+      @links = Link.where(user_id: @users, sharing: true).order("votes DESC").order("created_at DESC").paginate(page: params[:page], per_page: 10)
     end
     # @users.each do |user|
     #   user_links = user.links.all

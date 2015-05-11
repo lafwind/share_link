@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150510093326) do
+ActiveRecord::Schema.define(version: 20150511142617) do
 
   create_table "comments", force: true do |t|
     t.string   "content"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150510093326) do
     t.boolean  "sharing",     default: false
     t.string   "description"
     t.integer  "like_count"
+    t.integer  "votes"
   end
 
   add_index "links", ["user_id"], name: "index_links_on_user_id"
