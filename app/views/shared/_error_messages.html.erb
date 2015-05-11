@@ -1,6 +1,6 @@
 <% if @user.errors.any? %>
-  <div id="error_explanation">
-    <div class="alert alert-danger">
+  <div id="notice_explanation">
+    <div class="notice notice-danger">
       The form contains <%= pluralize(@user.errors.count, "error") %>.
     </div>
     <ul>
@@ -9,9 +9,9 @@
       <% end %>
     </ul>
   </div>
-<% elsif @link.errors.any?%>
-  <div id="error_explanation">
-    <div class="alert alert-danger">
+<% elsif @link && @link.errors.any?%>
+  <div id="notice_explanation">
+    <div class="notice notice-danger">
       The form contains <%= pluralize(@link.errors.count, "error") %>.
     </div>
     <ul>
